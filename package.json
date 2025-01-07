@@ -17,5 +17,8 @@
     "dependencies": {
         "16": "^0.0.2",
         "flowbite": "^2.5.2"
+    },
+    "engines": {
+        "node": "18.x"
     }
 }
