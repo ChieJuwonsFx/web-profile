@@ -10,9 +10,6 @@
         "use": "@vercel/static"
       }
     ],
-    "hooks": {
-      "build": "composer install && php artisan migrate"
-    },
     "env": {
       "APP_KEY": "your-app-key",
       "DB_CONNECTION": "mysql",
