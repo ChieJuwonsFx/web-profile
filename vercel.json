@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "public/index.php",
+        "use": "@vercel/php"
+      },
+      {
+        "src": "resources/js/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "hooks": {
+      "build": "composer install && php artisan migrate"
+    },
+    "env": {
+      "APP_KEY": "your-app-key",
+      "DB_CONNECTION": "mysql",
+      "DB_HOST": "your-database-host",
+      "DB_DATABASE": "your-database-name",
+      "DB_USERNAME": "your-database-username",
+      "DB_PASSWORD": "your-database-password"
+    }
+  }
+  
