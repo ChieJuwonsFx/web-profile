@@ -151,7 +151,7 @@ const AwardsSection: React.FC = () => {
             <Trophy className={`w-5 h-5 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
             <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'} font-medium`}>Achievements</span>
           </div>
-          <h2 className={`section-title text-5xl md:text-6xl font-bold ${darkMode ? 'bg-gradient-to-r from-white via-blue-100 to-purple-100' : 'bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800'} bg-clip-text text-transparent mb-4`}>
+          <h2 className={`section-title text-5xl md:text-6xl font-bold ${darkMode ? 'bg-gradient-to-r from-white via-blue-100 to-purple-100' : 'bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800'} bg-clip-text text-transparent mb-2 pt-2 pb-3 leading-tight`}>
             Awards & Recognition
           </h2>
           <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
