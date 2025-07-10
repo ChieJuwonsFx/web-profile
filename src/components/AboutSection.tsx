@@ -160,7 +160,7 @@ const AboutSection = () => {
               {[
                 { name: 'UI/UX', color: 'blue' },
                 { name: 'Front-end', color: 'emerald' },
-                { name: 'Data Science', color: 'purple' },
+                { name: 'System Analyst', color: 'purple' },
                 { name: 'Business Tech', color: 'amber' }
               ].map((skill) => {
                 const color = skillColors[skill.color as keyof typeof skillColors];
