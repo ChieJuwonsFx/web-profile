@@ -77,7 +77,9 @@ const HomeSection = () => {
       "Information Systems Student",
       "UI/UX Designer",
       "Front-End Developer",
+      "Fullstack Developer",
       "Digital Designer",
+      "Business Enthusiast",
       "Tech Enthusiast"
     ];
     const period = 2000;
@@ -117,7 +119,7 @@ const HomeSection = () => {
       floatingAnimationCtx.revert();
       clearTimeout(typewriterTimeout);
     };
-  }, []); 
+  }); 
   
   useEffect(() => {
     if (photoContainerRef.current) {

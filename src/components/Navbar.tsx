@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState('home'); 
   const { darkMode, toggleDarkMode } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
     setIsOpen(false);
+    document.getElementById(link)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const navItems = [
@@ -21,6 +22,39 @@ const Navbar: React.FC = () => {
     { id: 'certificates', label: 'Certificates' },
     { id: 'awards', label: 'Awards' }
   ];
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null, 
+      rootMargin: '-50% 0px -49% 0px', 
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    navItems.forEach(item => {
+      const section = document.getElementById(item.id);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      navItems.forEach(item => {
+        const section = document.getElementById(item.id);
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+      observer.disconnect();
+    };
+  }, [navItems]); 
 
   return (
     <nav className={`sticky top-0 z-50 shadow-sm py-1 transition-colors duration-300 ${
