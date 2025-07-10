@@ -292,7 +292,7 @@ const ProjectsSection: React.FC = () => {
                 onClick={() => goToSlide(index)}
               >
                 <motion.div 
-                  className={`relative h-full w-full rounded-2xl shadow-2xl overflow-hidden ${
+                  className={`relative h-full w-full rounded-2xl shadow-2xl overflow-hidden flex flex-col ${
                     darkMode ? 'bg-gray-800' : 'bg-white'
                   } border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
                   whileHover={{ 
@@ -300,7 +300,7 @@ const ProjectsSection: React.FC = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
+                  <div className="relative w-full h-64 overflow-hidden rounded-t-lg flex-shrink-0">
                     <div 
                       className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent"
                       style={{ background: `linear-gradient(to top, ${project.color}80, transparent 60%)` }}
@@ -326,8 +326,8 @@ const ProjectsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4 h-[calc(100%-16rem)] flex flex-col">
-                    <div className="flex-1">
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex-1 overflow-y-auto">
                       <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
                         {project.title}
                       </h3>
@@ -436,15 +436,14 @@ const ProjectsSection: React.FC = () => {
                     className="w-full flex-shrink-0 px-2"
                   >
                     <motion.div 
-                      className={`relative w-full max-w-sm mx-auto rounded-2xl shadow-xl overflow-hidden ${
+                      className={`relative w-full max-w-sm mx-auto rounded-2xl shadow-xl overflow-hidden min-h-[500px] ${
                         darkMode ? 'bg-gray-800' : 'bg-white'
-                      } border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                      } border ${darkMode ? 'border-gray-700' : 'border-gray-200'} flex flex-col`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-
-                      <div className="relative w-full aspect-video overflow-hidden">
+                      <div className="relative w-full aspect-video overflow-hidden flex-shrink-0">
                         <div 
                           className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 to-transparent"
                           style={{ background: `linear-gradient(to top, ${project.color}60, transparent 70%)` }}
@@ -470,8 +469,8 @@ const ProjectsSection: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="p-5 space-y-4">
-                        <div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="flex-1 overflow-y-auto">
                           <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
                             {project.title}
                           </h3>
@@ -480,7 +479,7 @@ const ProjectsSection: React.FC = () => {
                           </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 mt-4">
                           {project.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
@@ -493,7 +492,7 @@ const ProjectsSection: React.FC = () => {
                           ))}
                         </div>
 
-                        <div className="flex gap-2 pt-2">
+                        <div className="flex gap-2 pt-4 mt-auto">
                           {project.githubLink && (
                             <a
                               href={project.githubLink}
