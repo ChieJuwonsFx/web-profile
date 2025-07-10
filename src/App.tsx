@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import './styles/globals.css' 
 import { ThemeProvider } from './context/ThemeContext';
 
+
+
 function MyApp() {
   return (
     <ThemeProvider>
