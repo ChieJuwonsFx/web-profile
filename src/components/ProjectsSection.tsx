@@ -111,7 +111,6 @@ const ProjectsSection: React.FC = () => {
     },
   ];
 
-  // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -232,7 +231,6 @@ const ProjectsSection: React.FC = () => {
     setTimeout(() => setIsAnimating(false), 300);
   };
 
-  // Handle swipe gestures for mobile
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -281,17 +279,16 @@ const ProjectsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Desktop Slider */}
         {!isMobile && (
           <div 
             ref={sliderRef}
             id="slider-item" 
-            className="slider project-slider relative h-[580px] overflow-hidden flex items-center justify-center"
+            className="slider project-slider relative h-[650px] overflow-hidden flex items-center justify-center"
           >
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="item project-card absolute w-[330px] sm:w-[350px] md:w-[380px] lg:w-[420px] h-[524px] transition-all duration-300 ease-out cursor-pointer"
+                className="item project-card absolute w-[330px] sm:w-[350px] md:w-[380px] lg:w-[420px] h-[600px] transition-all duration-300 ease-out cursor-pointer"
                 onClick={() => goToSlide(index)}
               >
                 <motion.div 
@@ -303,7 +300,7 @@ const ProjectsSection: React.FC = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                  <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
                     <div 
                       className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent"
                       style={{ background: `linear-gradient(to top, ${project.color}80, transparent 60%)` }}
@@ -329,17 +326,17 @@ const ProjectsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4">
-                    <div>
-                      <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
+                  <div className="p-6 space-y-4 h-[calc(100%-16rem)] flex flex-col">
+                    <div className="flex-1">
+                      <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
                         {project.title}
                       </h3>
-                      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed line-clamp-4`}>
+                      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
@@ -352,7 +349,7 @@ const ProjectsSection: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="flex gap-3 pt-2">
+                    <div className="flex gap-3 pt-4 mt-auto">
                       {project.githubLink && (
                         <a
                           href={project.githubLink}
@@ -394,7 +391,6 @@ const ProjectsSection: React.FC = () => {
               </div>
             ))}
 
-            {/* Desktop Navigation Buttons */}
             <button
               onClick={prevSlide}
               disabled={isAnimating}
@@ -425,7 +421,6 @@ const ProjectsSection: React.FC = () => {
           </div>
         )}
 
-        {/* Mobile Card Stack */}
         {isMobile && (
           <div className="relative">
             <div 
@@ -448,8 +443,8 @@ const ProjectsSection: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      {/* Image Section */}
-                      <div className="relative h-48 overflow-hidden">
+
+                      <div className="relative w-full aspect-video overflow-hidden">
                         <div 
                           className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 to-transparent"
                           style={{ background: `linear-gradient(to top, ${project.color}60, transparent 70%)` }}
@@ -475,19 +470,18 @@ const ProjectsSection: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Content Section */}
-                      <div className="p-4 space-y-3">
+                      <div className="p-5 space-y-4">
                         <div>
-                          <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
+                          <h3 className={`text-lg font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
                             {project.title}
                           </h3>
-                          <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed line-clamp-3`}>
+                          <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
                             {project.description}
                           </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
                               className={`px-2 py-1 text-xs font-medium rounded-full ${
@@ -497,16 +491,9 @@ const ProjectsSection: React.FC = () => {
                               {tech}
                             </span>
                           ))}
-                          {project.technologies.length > 3 && (
-                            <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                              darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
-                            }`}>
-                              +{project.technologies.length - 3}
-                            </span>
-                          )}
                         </div>
 
-                        <div className="flex gap-2 pt-1">
+                        <div className="flex gap-2 pt-2">
                           {project.githubLink && (
                             <a
                               href={project.githubLink}
@@ -540,7 +527,6 @@ const ProjectsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Mobile Progress Bar */}
             <div className="mt-6 px-4">
               <div className={`w-full h-1 rounded-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} overflow-hidden`}>
                 <div 
@@ -563,7 +549,6 @@ const ProjectsSection: React.FC = () => {
           </div>
         )}
 
-        {/* Desktop Navigation - Bottom Controls */}
         {!isMobile && (
           <motion.div 
             key={activeIndex}
