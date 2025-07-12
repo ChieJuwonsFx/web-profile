@@ -10,6 +10,7 @@ import Innovixus from '../assets/innovixus.webp';
 import PakTelang from '../assets/paktelang.webp';
 import Profile from '../assets/web-profile.webp';
 import ApiIndo from '../assets/api-wilayah.webp';
+import Progress from '../assets/in-progress.webp';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -108,6 +109,24 @@ const ProjectsSection: React.FC = () => {
       color: '#2980B9', 
       githubLink: 'https://github.com/ChieJuwonsFx/web-profile',
       demoLink: 'https://richie-olajuwon-santoso.vercel.app/'
+    },
+    {
+      id: 8,
+      title: 'CitaNext',
+      description: 'Website yang menyajikan berbagai peluang terbaik bagi pelajar dan mahasiswa, mulai dari lomba, magang, hingga beasiswa. Pusat informasi lomba, magang, dan beasiswa yang bisa membantumu berkembang dan melangkah lebih jauh.',
+      image: Progress,
+      role: 'Fullstack Developer',
+      technologies: ['Next', 'React', 'Tailwind'],
+      color: '#2980B9', 
+    },
+    {
+      id: 9,
+      title: 'Eatsential',
+      description: 'Web ini merupakan platform yang membantu pengguna mengetahui kandungan gizi dari makanan kemasan, rumahan, maupun restoran secara detail dan jelas. Selain itu, web ini juga memantau konsumsi harian untuk mendukung pengguna dalam membuat pilihan makan yang lebih sehat dan terarah.',
+      image: Progress,
+      role: 'Fullstack Developer',
+      technologies: ['Next', 'React', 'Tailwind'],
+      color: '#2980B9', 
     },
   ];
 
