@@ -217,18 +217,18 @@ const AwardsSection: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-20 text-center stats-container">
-          <div className={`inline-flex items-center gap-8 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white/80 border-gray-200'} backdrop-blur-xl rounded-2xl px-8 py-6 border`}>
+        <div className="mt-20 text-center stats-container px-4">
+          <div className={`inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white/80 border-gray-200'} backdrop-blur-xl rounded-2xl px-6 py-6 border w-full sm:w-auto`}>
             <div className="text-center">
               <div className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-1`}>5+</div>
               <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Awards Won</div>
             </div>
-            <div className={`w-px h-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
+            <div className={`w-full h-px sm:w-px sm:h-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
             <div className="text-center">
               <div className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-1`}>3+</div>
               <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Organizer</div>
             </div>
-            <div className={`w-px h-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
+            <div className={`w-full h-px sm:w-px sm:h-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
             <div className="text-center">
               <div className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-1`}>5+</div>
               <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Areas of Appreciation</div>

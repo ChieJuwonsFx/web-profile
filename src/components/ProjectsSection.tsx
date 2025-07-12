@@ -81,7 +81,7 @@ const ProjectsSection: React.FC = () => {
       title: 'MAÉNKLUNG',
       description: 'MAÉNKLUNG adalah platform web interaktif yang mengenalkan Angklung alat musik tradisional Indonesia melalui pendekatan digital yang modern dan edukatif yang dibangun dengan HTML, Tailwind CSS, dan JavaScript.',
       image: Maenklung,
-      role: 'Designer',
+      role: 'UI/UX Designer',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       color: '#A0522D', 
       githubLink: 'https://github.com/ChieJuwonsFx/MAENKLUNG',
@@ -430,7 +430,7 @@ const ProjectsSection: React.FC = () => {
               onTouchEnd={handleTouchEnd}
             >
               <div className="flex transition-transform duration-300 ease-out" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-                {projects.map((project, index) => (
+                {projects.map((project) => (
                   <div
                     key={project.id}
                     className="w-full flex-shrink-0 px-2"
